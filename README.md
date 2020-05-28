@@ -1,6 +1,6 @@
 # Elastic APM for MongoDB
 
-This library supports Span traces of command using MongoDB.
+This library supports Span traces of command using [MongoDB](https://github.com/mongodb/mongo-php-library).
 
 ## Installation
 
