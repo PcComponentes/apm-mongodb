@@ -1,0 +1,26 @@
+{
+  "name": "pccomponentes/apm-mongodb",
+  "description": "Elastic APM for MongoDB",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Zoilo Mora",
+      "email": "zoilo.mora@pccomponentes.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PcComponentes\\ElasticAPM\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^7.4",
+    "ext-mongodb": "*",
+    "mongodb/mongodb": "^1.6",
+    "zoilomora/elastic-apm-agent-php": "^0.1.9"
+  },
+  "require-dev": {
+    "pccomponentes/coding-standard": "^1.0"
+  }
+}
