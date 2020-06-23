@@ -32,6 +32,10 @@ final class CommandSubscriber implements CommandSubscriberBase
 
     public function commandStarted(CommandStartedEvent $event)
     {
+        if (false === $this->elasticApmTracer->active()) {
+            return;
+        }
+
         $this->span = $this->elasticApmTracer->startSpan(
             self::SPAN_NAME,
             self::SPAN_TYPE,
@@ -44,11 +48,19 @@ final class CommandSubscriber implements CommandSubscriberBase
 
     public function commandSucceeded(CommandSucceededEvent $event)
     {
+        if (null === $this->span) {
+            return;
+        }
+
         $this->span->stop();
     }
 
     public function commandFailed(CommandFailedEvent $event)
     {
+        if (null === $this->span) {
+            return;
+        }
+
         $this->span->stop();
     }
 
