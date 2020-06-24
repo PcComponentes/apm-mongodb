@@ -94,7 +94,11 @@ final class CommandSubscriber implements CommandSubscriberBase
         $database = $command['$db'];
         $action = 'unknown';
         $collection = '';
-        $filter = (array) $command['filter'];
+        $filter = '';
+
+        if (true === \array_key_exists('filter', $command)) {
+            $filter = (array) $command['filter'];
+        }
 
         // TODO Implement Lexer
         if (true === \array_key_exists('find', $command)) {

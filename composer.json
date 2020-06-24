@@ -16,6 +16,7 @@
   },
   "require": {
     "php": "^7.4",
+    "ext-json": "*",
     "ext-mongodb": "*",
     "mongodb/mongodb": "^1.6",
     "zoilomora/elastic-apm-agent-php": "^0.1"
