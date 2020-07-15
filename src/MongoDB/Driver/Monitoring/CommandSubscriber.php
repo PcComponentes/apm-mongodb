@@ -18,16 +18,17 @@ final class CommandSubscriber implements CommandSubscriberBase
     private const SPAN_TYPE = 'DB';
     private const SPAN_SUBTYPE = 'mongodb';
     private const SPAN_ACTION = 'query';
-    private const CONTEXT_DB_TYPE = 'sql';
+    private const CONTEXT_DB_TYPE = 'mongodb';
     private const STACKTRACE_SKIP = 6;
 
     private ElasticApmTracer $elasticApmTracer;
 
-    private Span $span;
+    private ?Span $span;
 
     public function __construct(ElasticApmTracer $elasticApmTracer)
     {
         $this->elasticApmTracer = $elasticApmTracer;
+        $this->span = null;
     }
 
     public function commandStarted(CommandStartedEvent $event)
